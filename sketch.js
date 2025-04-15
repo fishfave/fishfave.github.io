@@ -1,4 +1,4 @@
-let rave = 0;
+let rave = false;
 
 let fish = [];
 
@@ -66,3 +66,31 @@ function startRave(){
   colorMode(HSB)
   rave = true;
 }
+
+function addFish(){
+  let a = new Animal(
+      random(width),
+      random(height),
+      random(0.5, 1.2),
+      color(random(200, 220), random(20, 20), random(50,70)),
+      color(random(90, 100), random(10, 10), random(220, 240))
+    );
+    fish.push(a);
+}
+
+function removeFish(){
+  if(fish.length >= 1){
+    fish.pop(fish.length-1);
+  }
+  
+}
+
+function keyPressed(){
+  if(keyCode == UP_ARROW){
+    addFish();
+  } else if(keyCode == DOWN_ARROW){
+    removeFish();
+  }
+  
+}
+
